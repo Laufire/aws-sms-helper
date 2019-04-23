@@ -11,8 +11,13 @@ awsSMSVerifier = new awsSMSVerify({
 	},
 });
 
-awsSMSVerifier.send({
-	message: 'Your OTP for <Some Company> is 9837449857',
-	phoneNumber: phone,
-	senderID: 'AlphaNum11' // #Note: In some AWS Regions, this has to be registered with AWS.
-});
+(async () => {
+
+	let messageID = await awsSMSVerifier.send({
+		message: 'Your OTP for <Some Company> is 9837449857',
+		phoneNumber: phone,
+		senderID: 'AlphaNum11' // #Note: In some AWS Regions, this has to be registered with AWS.
+	});
+
+	console.log(messageID);
+})();

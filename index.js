@@ -6,7 +6,7 @@ module.exports = function(config) {
 
 	const sns = new AWS.SNS({apiVersion: '2010-03-31'});
 
-	this.send = function(params) {
+	this.send = async (params) => {
 		let payload = {
 			Message: params.message,
 			PhoneNumber: params.phoneNumber,
@@ -22,13 +22,8 @@ module.exports = function(config) {
 			}
 		};
 
-		let publishTextPromise = sns.publish(payload).promise();
-		publishTextPromise.then((data) => {
+		let response = await sns.publish(payload).promise();
 
-			console.log("MessageID is " + data.MessageId);
-		}).catch((err) => {
-
-			console.error(err, err.stack);
-		});
+		return response.MessageId;
 	}
 };
