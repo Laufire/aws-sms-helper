@@ -6,6 +6,20 @@ cd $(dirname $0)
 # Config
 defaultRegion='ap-southeast-1'
 
+# Helpers
+generateOTP() {
+
+	otpLength=${1:-8}
+	result=""
+
+	for i in $(seq 1 $otpLength)
+	do
+		result="$result"$((RANDOM % 10))
+	done
+
+	echo "$result"
+}
+
 # Tasks
 gatherInput() {
 
@@ -18,6 +32,8 @@ gatherInput() {
 	export region
 	read -p "Target Phone: " phone
 	export phone
+	otp=$(generateOTP 8)
+	export otp
 }
 
 # Main

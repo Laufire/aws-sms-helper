@@ -1,4 +1,4 @@
-var AWS = require('aws-sdk');
+const AWS = require('aws-sdk');
 
 /* Exports */
 module.exports = function(config) {

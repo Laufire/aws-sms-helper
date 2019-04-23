@@ -2,7 +2,10 @@ const awsSMSVerify = require('../..');
 
 /* Data */
 const ENV = Object.assign({}, process.env);
-const { accessKeyId, secretAccessKey, region, phone } = ENV;
+const {
+	accessKeyId, secretAccessKey, region,
+	phone, otp
+} = ENV;
 
 /* Delegates */
 awsSMSVerifier = new awsSMSVerify({
@@ -14,7 +17,7 @@ awsSMSVerifier = new awsSMSVerify({
 (async () => {
 
 	let messageID = await awsSMSVerifier.send({
-		message: 'Your OTP for <Some Company> is 9837449857',
+		message: `Your OTP for <Some Company> is ${otp}`,
 		phoneNumber: phone,
 		senderID: 'AlphaNum11' // #Note: In some AWS Regions, this has to be registered with AWS.
 	});
