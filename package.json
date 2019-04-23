@@ -1,0 +1,33 @@
+{
+  "name": "aws-sms-verify",
+  "version": "0.0.1",
+  "description": "A library to verify mobile numbers, by sending SMS verification codes, through AWS SNS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Laufire/aws-sms-verify.git"
+  },
+  "keywords": [
+    "verify",
+    "mobile",
+    "number",
+    "send",
+    "SMS",
+    "verification",
+    "code",
+    "AWS",
+    "SNS"
+  ],
+  "author": "laufire technologies",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Laufire/aws-sms-verify/issues"
+  },
+  "homepage": "https://github.com/Laufire/aws-sms-verify#readme",
+  "dependencies": {
+    "aws-sdk": "^2.441.0"
+  }
+}
